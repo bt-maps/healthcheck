@@ -7,7 +7,7 @@ services:
   tile38-leader:
     image: tile38/tile38
     container_name: tile38-leader
-    command: tile38-server -vv -p 9851
+    command: tile38-server -p 9851
     ports:
       - 9851:9851
 
@@ -17,6 +17,6 @@ services:
     command: >
       /bin/sh -c 'mkdir -p tmp/data && \
                   echo "{\"follow_host\": \"tile38-leader\",\"follow_port\":9851}" > tmp/data/config
-                  tile38-server -d tmp/data -vv -p 9852'
+                  tile38-server -d tmp/data -p 9852'
     ports:
       - 9852:9852
