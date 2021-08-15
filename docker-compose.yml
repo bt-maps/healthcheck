@@ -1,1 +1,22 @@
+# tile38 leader/follower service config modified from https://github.com/iwpnd/pyle38/
+# add OpenResty official docker image
 
+version: "3"
+
+services:
+  tile38-leader:
+    image: tile38/tile38
+    container_name: tile38-leader
+    command: tile38-server -vv -p 9851
+    ports:
+      - 9851:9851
+
+  tile38-follower:
+    image: tile38/tile38
+    container_name: tile38-follower
+    command: >
+      /bin/sh -c 'mkdir -p tmp/data && \
+                  echo "{\"follow_host\": \"tile38-leader\",\"follow_port\":9851}" > tmp/data/config
+                  tile38-server -d tmp/data -vv -p 9852'
+    ports:
+      - 9852:9852
