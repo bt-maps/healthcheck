@@ -4,6 +4,16 @@
 version: "3"
 
 services:
+
+  healthcheck:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - tile38-leader
+      - tile38-follower
+      
   tile38-leader:
     image: tile38/tile38
     container_name: tile38-leader
