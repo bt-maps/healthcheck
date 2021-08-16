@@ -45,7 +45,8 @@ curl http://localhost:8080/status
 OPM (OpenResty package manager)
 ---
 
-One library is installed during the Docker image building process :
+One library is installed during the Docker image building process 
+(not actually used in this config, but useful when working with openresty):
 
 * [lua-resty-http] : Lua HTTP client cosocket driver for OpenResty / ngx_lua.
 https://github.com/ledgetech/lua-resty-http
@@ -104,9 +105,9 @@ http {
             return
         end
 
-        -- Just call hc.spawn_checker() for more times here if you have
-        -- more upstream groups to monitor. 
-         local follower_ok, err = hc.spawn_checker{
+        -- Just call hc.spawn_checker() for each upstream server you want to check
+        
+        local follower_ok, err = hc.spawn_checker{
             shm = "healthcheck",  -- defined by "lua_shared_dict"
             upstream = "tile38-follower", -- defined by "upstream"
             type = "http",
