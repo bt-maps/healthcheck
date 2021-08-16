@@ -33,7 +33,8 @@ docker-compose up -d --build
 
 Status Page
 ---
-To view the status page,  simply run or open your browser :
+
+To view the status page,  simply curl the page or open your browser :
 
 ```shell
 curl http://localhost:8080/status
@@ -93,7 +94,7 @@ http {
             timeout = 1000,   -- 1 sec is the timeout for network operations
             fall = 3,  -- # of successive failures before turning a peer down
             rise = 2,  -- # of successive successes before turning a peer up
-            valid_statuses = {200, 302},  -- a list valid HTTP status code
+            valid_statuses = {200},  -- a list valid HTTP status code
             concurrency = 10,  -- concurrency level for test requests
         }
         if not leader_ok then
@@ -115,7 +116,7 @@ http {
             timeout = 1000,   -- 1 sec is the timeout for network operations
             fall = 3,  -- # of successive failures before turning a peer down
             rise = 2,  -- # of successive successes before turning a peer up
-            valid_statuses = {200, 302},  -- a list valid HTTP status code
+            valid_statuses = {200},  -- a list valid HTTP status code
             concurrency = 10,  -- concurrency level for test requests
         }
         if not follower_ok then
