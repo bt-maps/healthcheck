@@ -42,12 +42,14 @@ curl http://localhost:8080/status
 ![status page](7EED6F2B-2F0E-4DF5-A228-EC3B0FA655D3_4_5005_c.jpeg?raw=true "Status page showing peers")
 
 
-OPM
+OPM (OpenResty package manager)
 ---
 
 One library is installed during the Docker image building process :
 
-* [lua-resty-http][5] : An HTTP Client
+* [lua-resty-http] : Lua HTTP client cosocket driver for OpenResty / ngx_lua.
+https://github.com/ledgetech/lua-resty-http
+
 
 
 Configuration
