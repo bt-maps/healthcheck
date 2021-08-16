@@ -1,5 +1,6 @@
 ## Tile38 leader-follower health check and status page using OpenResty
-
+  
+Spawns background timer-based "light threads" to perform periodic healthchecks on the Tile 38 servers specified in the NGINX upstream group. The healthchecker does not need any client traffic to function. 
 
 Docker
 ------
