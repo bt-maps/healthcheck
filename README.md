@@ -105,8 +105,6 @@ http {
             return
         end
 
-        -- Just call hc.spawn_checker() for each upstream server you want to check
-        
         local follower_ok, err = hc.spawn_checker{
             shm = "healthcheck",  -- defined by "lua_shared_dict"
             upstream = "tile38-follower", -- defined by "upstream"
