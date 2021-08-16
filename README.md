@@ -1,4 +1,4 @@
-# Tile38 leader-follower health check and status page using OpenResty
+### Tile38 leader-follower health check and status page using OpenResty
 
 
 Docker
@@ -148,6 +148,5 @@ http {
     }
 }
 ```
-
 
 
